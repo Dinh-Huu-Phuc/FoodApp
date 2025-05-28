@@ -1,0 +1,60 @@
+name: food_app
+description: "A new Flutter project."
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.7.2
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^5.0.0
+
+
+flutter:
+
+
+  uses-material-design: true
+
+  assets:
+    - assets/cinema/
+    - assets/coffee/
+    - assets/food-delivery/product/
+    - assets/food-delivery/
+    - assets/food-delivery/icon/
+    - assets/grocery/
+    - assets/football/
+    - assets/plant-shop/
+    - assets/food-recipe/
+    - assets/banking-app/
+    - assets/doctor-appoinment/
+    - assets/food-delivery(foodel)/
+    - assets/food-delivery(foodel)/ramen/
+    - assets/food-delivery(foodel)/burger/
+    - assets/dashoboard/
+    - assets/pdf/
+    - assets/coffee-shop/
+    - assets/fashion/
+    - assets/fashion/category_image/
+    - assets/fashion/category_image/sub_category/
+    - assets/img/
+    - assets/health/
+    - assets/educational-app/
+    - assets/agriplant/
+    - assets/grocery-ui/
+    - assets/job-finder/
+    - assets/images/
+    - assets/images/onboard.png
