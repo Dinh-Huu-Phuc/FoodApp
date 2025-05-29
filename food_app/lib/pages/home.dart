@@ -12,6 +12,9 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 List<CategoryModel> categories = [];
+String track = "0";
+
+
 
 @override
   void initState() {
@@ -41,7 +44,7 @@ List<CategoryModel> categories = [];
                       width: 110,
                       fit: BoxFit.contain,
                     ),
-                    Text("Order your favorite food!",
+                    Text("Tần Thủy Hoàng FoodApp!",
                     style: AppWidget.SimpleTextFeildStyle(),
                     ),
                   ],
@@ -97,15 +100,84 @@ List<CategoryModel> categories = [];
             ),
             SizedBox(height: 20.0),
             Container(
-              height: 80,
+              height: 60,
               child: ListView.builder(
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
                 itemCount:categories.length,
                 itemBuilder: (context, index){
-                return CategoryTile(name: categories[index].name!, image: categories[index].image!);
+                return CategoryTile(
+                  categories[index].name!, 
+                  categories[index].image!, 
+                  index.toString()
+                );
               }),
             )
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget CategoryTile(String name, String image, String categoryindex) {
+    return GestureDetector(
+      onTap: (){
+        track= categoryindex.toString();
+        setState((){
+        
+        });
+      },
+
+      child: track== categoryindex
+      ?Container(
+        margin: EdgeInsets.only(right: 20.0),
+        child: Material(
+          elevation: 3.0,
+          borderRadius: BorderRadius.circular(30.0),
+          child: Container(
+            padding: EdgeInsets.only(left: 20.0, right: 20.0),
+            
+            decoration:  BoxDecoration(
+              color: Color(0xffef2b39),
+              borderRadius: BorderRadius.circular(30.0),
+            ),
+            child: Row(
+              children: [
+                Image.asset(
+                  image, 
+                  height: 40,
+                  width: 40,
+                  fit: BoxFit.cover,
+                ),
+              SizedBox(width: 10.0,),
+              Text(
+                name,
+                style: AppWidget.whiteTextFeildStyle(),
+              ),
+              ],
+            ),
+          ),
+        ),
+      ): Container(
+        padding: EdgeInsets.only(left: 20.0, right: 20.0),
+        margin: EdgeInsets.only(right: 20.0),
+        decoration: BoxDecoration(
+          color: Color(0xffececf8),
+          borderRadius: BorderRadius.circular(30.0),
+        ),
+        child: Row(
+          children: [
+            Image.asset(
+              image, 
+              height: 40,
+              width: 40,
+              fit: BoxFit.cover,
+            ),
+          SizedBox(width: 10.0,),
+          Text(
+            name,
+            style: AppWidget.SimpleTextFeildStyle(),
+          ),
           ],
         ),
       ),
@@ -114,33 +186,3 @@ List<CategoryModel> categories = [];
 }
 
 
-class CategoryTile extends StatefulWidget {
-  String name, image;
-  CategoryTile({required this.name, required this.image});
-
-  @override
-  State<CategoryTile> createState() => _CategoryTileState();
-}
-
-class _CategoryTileState extends State<CategoryTile> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration:  BoxDecoration(
-        color: Color(0xffef2b39),
-      ),
-      child: Row(
-        children: [
-          Image.asset(widget.image, 
-          height: 50,
-          fit: BoxFit.cover,
-        ),
-        Text(
-          widget.name,
-          style: AppWidget.whiteTextFeildStyle(),
-        ),
-        ],
-      ),
-    );
-  }
-}
