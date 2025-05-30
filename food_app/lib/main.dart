@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/pages/bottomnav.dart';
+import 'package:food_app/pages/detail_page.dart';
 import 'package:food_app/pages/home.dart';
 import 'package:food_app/pages/onboarding.dart';
 
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
     
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: Home()
+      home: DetailPage()
     );
   }
 }
